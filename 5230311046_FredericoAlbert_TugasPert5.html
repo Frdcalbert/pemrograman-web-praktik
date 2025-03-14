@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warung Makan Enak</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px;
+        background-color: #ead196;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .top-bar {
+        display: flex;
+        padding: 15px;
+        align-items: center;
+        background-color: #fff;
+      }
+
+      .logo-container {
+        width: 100px;
+        height: 80px;
+      }
+
+      .logo {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .nama-logo {
+        margin-left: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #bf3131z;
+      }
+
+      .menu {
+        display: flex;
+        background-color: #bf3131;
+      }
+
+      .menu-item {
+        flex: 1;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        border-right: 2px solid #7d0a0a;
+      }
+
+      .menu-item:last-child {
+        border-right: none;
+      }
+
+      .content {
+        padding: 15px;
+      }
+
+      .header-section {
+        border: 2px solid #ddd;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+
+      .header-section h1 {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+
+      .header-section p {
+        color: black;
+        line-height: 1.4;
+      }
+
+      .gallery {
+        width: 93%;
+        text-align: center;
+        margin: 0px;
+        background-color: #d8d8d870;
+        padding: 0px;
+        text-align: center;
+        font-weight: bold;
+        margin: 24px;
+        border-radius: 30px;
+      }
+
+      .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1px;
+        padding: 30px;
+      }
+
+      .gallery img {
+        width: 600px;
+        height: 250px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-bar">
+        <div class="logo-container">
+          <div class="logo">
+            <img
+              src="https://serbajogja.com/modules/news/images/6464a6a452bcc.jpg"
+              alt="Logo Claypot"
+            />
+          </div>
+        </div>
+        <div class="nama-logo">Claypot Key</div>
+      </div>
+
+      <div class="menu">
+        <div class="menu-item">Menu</div>
+        <div class="menu-item">Lokasi</div>
+        <div class="menu-item">Kontak</div>
+      </div>
+
+      <div class="content">
+        <div class="header-section">
+          <h1>Selamat Datang di Claypot Key</h1>
+          <p style="text-align: justify">
+            Nikmati kelezatan hidangan khas claypot di [Nama Restoran Anda],
+            restoran terbaik di Jogja yang menyajikan makanan langsung dalam pot
+            tanah liat untuk cita rasa yang lebih autentik dan lezat. Dari Nasi
+            Claypot Ayam Kecap yang gurih, Seafood Claypot berkuah segar, hingga
+            Mie Claypot Rempah yang hangat, semua disajikan dengan bahan
+            berkualitas dan bumbu pilihan. Dengan suasana nyaman dan pelayanan
+            terbaik, kami siap memberikan pengalaman kuliner yang tak
+            terlupakan.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-container">
+            <img
+              src="https://cdn.idntimes.com/content-images/community/2021/04/162494200-1121688061649203-2511148439719441259-n-e45b787aec2ecf944a4790025779791c-9c86f8e82bb01f6abde181baa4b0e807.jpg"
+              alt="GambarClaypot1"
+            />
+            <img
+              src="https://cdn.idntimes.com/content-images/community/2021/04/163185011-108200371360031-4217006201790159855-n-e45b787aec2ecf944a4790025779791c-4e7a0c4ed311d145c7164a498109647a.jpg"
+              alt="GambarMinum"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
