@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShoeCare - Jasa Cuci Sepatu Professional</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+      }
+
+      header {
+        background-color: #1e88e5;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      .blog-container {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+      }
+
+      .blog-header {
+        margin-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+      }
+
+      .blog-title {
+        font-size: 32px;
+        color: #1e88e5;
+        margin-bottom: 10px;
+      }
+
+      .blog-meta {
+        display: flex;
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .blog-meta span {
+        margin-right: 15px;
+      }
+
+      .blog-image {
+        width: 100%;
+        height: 400px;
+        background-color: #eee;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #777;
+        border-radius: 8px;
+      }
+
+      .blog-content h2 {
+        font-size: 24px;
+        color: #1e88e5;
+        margin: 30px 0 15px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 10px;
+      }
+
+      .blog-content p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+
+      .blog-content ul,
+      .blog-content ol {
+        margin-left: 20px;
+        margin-bottom: 25px;
+      }
+
+      .blog-content li {
+        margin-bottom: 10px;
+      }
+
+      .blog-content strong {
+        color: #1e88e5;
+      }
+
+      .author-box {
+        display: flex;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 40px;
+      }
+
+      .author-info h3 {
+        margin-bottom: 5px;
+        color: #1e88e5;
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        margin: 30px 0;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Styles for comment section */
+      .comments-section {
+        margin-top: 40px;
+        border-top: 2px solid #f0f0f0;
+        padding-top: 30px;
+      }
+
+      .comments-title {
+        font-size: 24px;
+        color: #1e88e5;
+        margin-bottom: 20px;
+      }
+
+      .comment-form {
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .btn-submit {
+        background-color: #1e88e5;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .btn-submit:hover {
+        background-color: #1976d2;
+      }
+
+      .comments-list {
+        margin-top: 30px;
+      }
+
+      .comment {
+        border-bottom: 1px solid #eee;
+        padding: 20px 0;
+      }
+
+      .comment:last-child {
+        border-bottom: none;
+      }
+
+      .comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .comment-author {
+        font-weight: 600;
+      }
+
+      .comment-date {
+        color: #777;
+        font-size: 14px;
+      }
+
+      .comment-body {
+        line-height: 1.6;
+      }
+
+      footer {
+        background-color: #1e88e5;
+        color: white;
+        padding: 40px 0 20px;
+        margin-top: 60px;
+      }
+
+      .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .footer-about p {
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-heading {
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .footer-heading:after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: white;
+        margin-top: 10px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+      }
+
+      .footer-contact li {
+        margin-bottom: 15px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+        }
+
+        nav {
+          margin-top: 15px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        nav ul li {
+          margin: 5px 10px;
+        }
+
+        .blog-title {
+          font-size: 28px;
+        }
+
+        .blog-image {
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="#" class="logo">ShoeCare</a>
+        <nav>
+          <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Bagian JUDUL -->
+    <div class="container">
+      <div class="blog-container">
+        <div class="blog-header">
+          <h1 class="blog-title">Cara Mencuci Sepatu Kanvas dengan Benar</h1>
+          <div class="blog-meta">
+            <span>Oleh: Tim ShoeCare</span>
+            <span>23 Maret 2025</span>
+            <span>Kategori: Perawatan Sepatu</span>
+          </div>
+        </div>
+
+        <div class="blog-image">
+          <img
+            src="https://www.mldspot.com/storage/generated/June2021/Sepatu%20Kanvas.jpg"
+            alt="Gambar 1"
+            width="100%"
+            height="100%"
+          />
+        </div>
+
+        <!-- Bagian ISI -->
+        <div class="blog-content">
+          <p>
+            Sepatu kanvas merupakan salah satu jenis sepatu yang populer karena
+            kenyamanan dan tampilannya yang casual. Namun, sepatu kanvas juga
+            mudah kotor dan membutuhkan perawatan khusus agar tetap awet dan
+            terlihat bersih. Pada artikel ini, kami akan berbagi tips
+            professional tentang cara mencuci sepatu kanvas dengan benar seperti
+            yang kami lakukan di layanan cuci sepatu ShoeCare.
+          </p>
+
+          <h2>Apa Itu Sepatu Kanvas?</h2>
+          <p>
+            Sepatu kanvas adalah jenis sepatu yang terbuat dari bahan kain
+            kanvas yang kuat namun fleksibel. Bahan ini umumnya terbuat dari
+            katun, linen, atau campuran bahan sintetis. Sepatu kanvas populer
+            karena ringan, nyaman, dan memiliki desain yang casual. Beberapa
+            merek sepatu kanvas terkenal antara lain Converse, Vans, Keds, dan
+            berbagai merek lokal lainnya.
+          </p>
+
+          <div class="blog-image">
+            <img
+              src="https://cdn.rri.co.id/berita/Yogyakarta/o/1734021110522-WhatsApp_Image_2024-12-12_at_23.29.28/pljhn4pvjmjn8iq.jpeg"
+              alt="Gambar 2"
+              width="100%"
+              height="100%"
+            />
+          </div>
+
+          <h2>Alat dan Bahan yang Dibutuhkan</h2>
+          <p>
+            Sebelum mulai mencuci sepatu kanvas, pastikan Anda telah menyiapkan
+            alat dan bahan berikut:
+          </p>
+          <ul>
+            <li>
+              <strong>Air hangat</strong> - Membantu melarutkan kotoran dan noda
+            </li>
+            <li>
+              <strong>Sabun cuci piring atau deterjen ringan</strong> - Untuk
+              membersihkan noda tanpa merusak bahan
+            </li>
+            <li>
+              <strong>Sikat gigi bekas</strong> - Untuk menjangkau dan
+              membersihkan area yang sulit
+            </li>
+            <li>
+              <strong>Sikat berbulu lembut</strong> - Untuk membersihkan
+              permukaan sepatu
+            </li>
+            <li>
+              <strong>Handuk atau kain bersih</strong> - Untuk mengeringkan
+              sepatu
+            </li>
+            <li>
+              <strong>Kertas koran atau tisu</strong> - Untuk menjaga bentuk
+              sepatu saat dikeringkan
+            </li>
+            <li>
+              <strong>Pasta gigi (khusus yang putih)</strong> - Untuk
+              membersihkan bagian karet putih pada sepatu
+            </li>
+          </ul>
+
+          <h2>Langkah-langkah Mencuci Sepatu Kanvas</h2>
+          <p>
+            Berikut adalah cara mencuci sepatu kanvas dengan benar yang bisa
+            Anda lakukan di rumah:
+          </p>
+
+          <ol>
+            <li>
+              <strong>Bersihkan kotoran kering</strong>
+              <p>
+                Ketuk-ketuk sol sepatu untuk menghilangkan kotoran, debu, atau
+                kerikil yang menempel. Sikat permukaan sepatu secara perlahan
+                untuk menghilangkan kotoran yang menempel.
+              </p>
+            </li>
+
+            <li>
+              <strong>Lepaskan tali sepatu</strong>
+              <p>
+                Untuk hasil yang maksimal, lepaskan tali sepatu terlebih dahulu.
+                Tali sepatu dapat dicuci terpisah dengan cara merendam dalam
+                larutan air sabun.
+              </p>
+            </li>
+
+            <li>
+              <strong>Siapkan larutan pembersih</strong>
+              <p>
+                Campurkan air hangat dengan sedikit sabun cuci piring atau
+                deterjen ringan ke dalam mangkuk atau baskom. Pastikan sabun
+                tercampur rata dengan air.
+              </p>
+            </li>
+
+            <li>
+              <strong>Mulai mencuci sepatu</strong>
+              <p>
+                Celupkan sikat berbulu lembut ke dalam larutan sabun, kemudian
+                sikat perlahan seluruh permukaan sepatu dengan gerakan memutar.
+                Gunakan sikat gigi bekas untuk area yang sulit dijangkau seperti
+                jahitan dan lipatan.
+              </p>
+            </li>
+
+            <li>
+              <strong>Bersihkan bagian sol</strong>
+              <p>
+                Gunakan sikat yang lebih keras untuk membersihkan bagian sol
+                sepatu. Jika sol berwarna putih dan telah menguning, oleskan
+                pasta gigi putih dan sikat perlahan.
+              </p>
+            </li>
+
+            <li>
+              <strong>Bilas sepatu</strong>
+              <p>
+                Setelah sepatu selesai disikat, bilas secara menyeluruh dengan
+                air bersih hingga semua busa sabun hilang. Hindari merendam
+                sepatu terlalu lama karena dapat merusak lem dan struktur
+                sepatu.
+              </p>
+            </li>
+
+            <li>
+              <strong>Keringkan sepatu</strong>
+              <p>
+                Serap kelebihan air dengan handuk atau kain bersih. Masukkan
+                kertas koran atau tisu ke dalam sepatu untuk menyerap kelembapan
+                dan menjaga bentuk sepatu saat dikeringkan.
+              </p>
+            </li>
+
+            <li>
+              <strong>Jemur di tempat teduh</strong>
+              <p>
+                Jemur sepatu di tempat teduh dengan sirkulasi udara yang baik.
+                Hindari sinar matahari langsung karena dapat memudarkan warna
+                dan merusak bahan sepatu.
+              </p>
+            </li>
+          </ol>
+
+          <div class="blog-image">
+            <img
+              src="https://www.stopngo.id/wp-content/uploads/2024/06/sepatu-kanvas-5.jpg"
+              alt="Gambar 3"
+              width="100%"
+              height="100%"
+            />
+          </div>
+
+          <h2>Tips Perawatan Sepatu Kanvas</h2>
+          <p>
+            Selain mencuci dengan benar, berikut beberapa tips tambahan untuk
+            merawat sepatu kanvas Anda:
+          </p>
+          <ul>
+            <li>
+              <strong>Jangan gunakan mesin cuci</strong> - Mencuci sepatu kanvas
+              dengan mesin cuci dapat merusak bentuk dan struktur sepatu.
+            </li>
+            <li>
+              <strong>Hindari pengering</strong> - Panas dari pengering dapat
+              merusak lem dan menyusutkan bahan sepatu.
+            </li>
+            <li>
+              <strong>Cuci secara berkala</strong> - Jangan menunggu sepatu
+              terlalu kotor sebelum dicuci, karena noda lama lebih sulit
+              dihilangkan.
+            </li>
+            <li>
+              <strong>Gunakan pelindung sepatu</strong> - Setelah sepatu bersih
+              dan kering, semprotkan spray pelindung sepatu khusus untuk
+              mencegah noda dan kotoran menempel.
+            </li>
+            <li>
+              <strong>Ganti insole secara berkala</strong> - Insole yang bersih
+              membantu mengurangi bau tidak sedap pada sepatu.
+            </li>
+          </ul>
+
+          <h2>Kesimpulan</h2>
+          <p>
+            Mencuci sepatu kanvas dengan benar memang membutuhkan sedikit usaha,
+            tetapi dengan perawatan yang tepat, sepatu kanvas kesayangan Anda
+            akan lebih awet dan selalu terlihat bersih. Ikuti langkah-langkah
+            yang kami jelaskan di atas untuk hasil yang optimal.
+          </p>
+          <p>
+            Namun, jika Anda tidak memiliki waktu atau peralatan yang memadai,
+            layanan cuci sepatu profesional seperti ShoeCare siap membantu Anda.
+            Dengan teknologi dan pengalaman yang kami miliki, sepatu kanvas Anda
+            akan kembali bersih dan terlihat seperti baru lagi.
+          </p>
+
+          <h2>Video Tutorial</h2>
+          <div class="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/_2y2kKfCipA?si=dX4wSLFb6_WFC59M"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Bagian Komen -->
+          <div class="comments-section">
+            <h2 class="comments-title">Komentar</h2>
+
+            <!-- Form Komen -->
+            <div class="comment-form">
+              <form action="#" method="post">
+                <div class="form-group">
+                  <label for="name">Nama</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="comment">Komentar</label>
+                  <textarea
+                    id="comment"
+                    name="comment"
+                    class="form-control"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Kirim Komentar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bagian author -->
+        <div class="author-box">
+          <div class="author-info">
+            <h3>Tim ShoeCare</h3>
+            <p>
+              Tim profesional dengan pengalaman lebih dari 5 tahun dalam bidang
+              perawatan sepatu. Kami selalu berbagi tips dan trik perawatan
+              sepatu melalui blog ini.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">ShoeCare</div>
+          <p>
+            ShoeCare adalah jasa cuci sepatu profesional yang berlokasi di
+            Jakarta. Kami berkomitmen memberikan pelayanan terbaik untuk
+            perawatan sepatu kesayangan Anda.
+          </p>
+        </div>
+
+        <div class="footer-contact-section">
+          <h3 class="footer-heading">Kontak</h3>
+          <ul class="footer-contact">
+            <li>Jl. Sepatu Bersih No. 123, Yogyakarta</li>
+            <li>Telepon: (021) 1234-5678</li>
+            <li>WhatsApp: 0812-3456-7890</li>
+            <li>Email: shoecare@gmail.com</li>
+            <li>Jam Operasional: 09.00 - 20.00 (Senin-Sabtu)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>
+          &copy; 2025 ShoeCare - Jasa Cuci Sepatu Profesional. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
