@@ -1,0 +1,145 @@
+/* CSS Unik untuk Aplikasi Mahasiswa */
+
+body {
+    font-family: 'Courier New', Courier, monospace; /* Font monospace untuk kesan berbeda */
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0; /* Warna latar belakang netral */
+    color: #333;
+}
+
+/* Header */
+h1 {
+    color: #8e44ad; /* Warna ungu yang mencolok */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 3em; /* Ukuran font yang besar */
+    text-transform: uppercase; /* Mengubah teks menjadi huruf kapital */
+    letter-spacing: 2px; /* Jarak antar huruf */
+    border-bottom: 2px solid #8e44ad; /* Garis bawah */
+    padding-bottom: 10px; /* Ruang di bawah teks */
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    background: #fff;
+    border-radius: 15px; /* Sudut melengkung yang lebih besar */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    border-collapse: separate; /* Memisahkan border */
+    border-spacing: 0 10px; /* Jarak antar baris */
+}
+
+table th {
+    background-color: #e67e22; /* Warna oranye */
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    border-top-left-radius: 15px; /* Sudut melengkung */
+    border-top-right-radius: 15px; /* Sudut melengkung */
+}
+
+table td {
+    padding: 12px;
+    background-color: #f9c2c2; /* Warna latar belakang sel */
+    border-radius: 10px; /* Sudut melengkung pada sel */
+}
+
+table tr:hover td {
+    background-color: #f39c12; /* Warna saat hover */
+}
+
+/* Form */
+form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #34495e; /* Warna teks label */
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #8e44ad; /* Border ungu */
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s; /* Transisi halus saat fokus */
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+    outline: none;
+    border-color: #5e3370; /* Warna border saat fokus */
+}
+
+/* Tombol */
+form input[type="submit"],
+form input[type="reset"] {
+    background-color: #8e44ad; /* Warna tombol ungu */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transisi halus saat hover */
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover {
+    background-color: #732d91; /* Warna tombol saat hover */
+}
+
+/* Link Aksi */
+.action-links a {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.action-links .edit {
+    background-color: #27ae60; /* Warna hijau untuk edit */
+}
+
+.action-links .edit:hover {
+    background-color: #219653; /* Warna saat hover */
+}
+
+.action-links .delete {
+    background-color: #c0392b; /* Warna merah untuk delete */
+}
+
+.action-links .delete:hover {
+    background-color: #a93226; /* Warna saat hover */
+}
+
+/* Pesan */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-left: 5px solid #8e44ad; /* Garis samping */
+}
+
+.success {
+    background-color: #d4edda; /* Warna latar belakang sukses */
+    color: #155724; /* Warna teks sukses */
+}
+
+.error {
+    background-color: #f8d7da; /* Warna latar belakang error */
+    color: #721c24; /* Warna teks error */
+}
