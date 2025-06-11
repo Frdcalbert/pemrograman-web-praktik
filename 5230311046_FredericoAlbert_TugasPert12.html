@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pem Web Praktik Kalkulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            
+        }
+        p {
+            margin-top: 50px;
+        }
+        .calculator {
+            background-color: #ddd;
+            border: 1px solid #999;
+            padding: 10px;
+            width: 250px;
+        }
+        
+        .display-container {
+            margin-bottom: 10px;
+        }
+        
+        .history {
+            color: #666;
+            font-size: 14px;
+            text-align: right;
+            min-height: 18px;
+        }
+        
+        .display {
+            background-color: #fff;
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: right;
+            font-size: 20px;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        
+        button {
+            border: 1px solid #999;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button.operator {
+            background-color: #f0f0f0;
+        }
+        
+        button.clear {
+            background-color: #ffcccc;
+        }
+        
+        button.equals {
+            background-color: #ccf;
+        }
+        button.zero {
+            background-color: #f0f0f0;
+            grid-column: span 3;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    <div class="calculator">
+        <div class="display-container">
+            <div class="history" id="history"></div>
+            <div class="display" id="display">0</div>
+        </div>
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="operator" onclick="appendOperator('/')">/</button>
+            <button class="operator" onclick="appendOperator('*')">×</button>
+            <button class="operator" onclick="appendOperator('-')">-</button>
+            
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="appendOperator('+')">+</button>
+            
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            
+            <button onclick="appendDecimal()">.</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            
+            <button class="equals" onclick="calculate()">=</button>
+            <button onclick="appendNumber('0')">0</button>
+            
+            
+        </div>
+    </div>
+    <p><strong>Bisa langsung diketik</strong><br> Ketik Angka (0-9) <br> Panduan Operator : <br> 1. Perkalian (*) <br> 2. Pembagian (/) <br> 3. Pengurangan (-) <br> 4. Penjumlahan (+) <br> 5. Hasil = (Enter)</p>
+    <script>
+        let currentInput = '0';
+        let previousInput = '';
+        let operation = null;
+        let resetScreen = false;
+        let calculationHistory = '';
+
+        const display = document.getElementById('display');
+        const historyDisplay = document.getElementById('history');
+
+        function updateDisplay() {
+            display.textContent = currentInput;
+            
+            if (operation) {
+                historyDisplay.textContent = `${previousInput} ${operation}`;
+            } else if (calculationHistory) {
+                historyDisplay.textContent = calculationHistory;
+            } else {
+                historyDisplay.textContent = '';
+            }
+        }
+
+        function appendNumber(number) {
+            if (currentInput === '0' || resetScreen) {
+                currentInput = number;
+                resetScreen = false;
+            } else {
+                currentInput += number;
+            }
+            updateDisplay();
+        }
+
+        function appendDecimal() {
+            if (resetScreen) {
+                currentInput = '0.';
+                resetScreen = false;
+                updateDisplay();
+                return;
+            }
+            
+            if (!currentInput.includes('.')) {
+                currentInput += '.';
+                updateDisplay();
+            }
+        }
+
+        function appendOperator(op) {
+            if (operation !== null) calculate();
+            previousInput = currentInput;
+            operation = op;
+            resetScreen = true;
+            updateDisplay();
+        }
+
+        function calculate() {
+            if (operation === null) return;
+            
+            let result;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+            
+            if (isNaN(prev)) return;
+            if (isNaN(current)) return;
+            
+            switch (operation) {
+                case '+': result = prev + current; break;
+                case '-': result = prev - current; break;
+                case '*': result = prev * current; break;
+                case '/': result = prev / current; break;
+                default: return;
+            }
+            
+            calculationHistory = `${previousInput} ${operation} ${currentInput} =`;
+            currentInput = result.toString();
+            operation = null;
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            currentInput = '0';
+            previousInput = '';
+            operation = null;
+            calculationHistory = '';
+            updateDisplay();
+        }
+
+        function backspace() {
+            if (currentInput.length === 1 || (currentInput.length === 2 && currentInput.startsWith('-'))) {
+                currentInput = '0';
+            } else {
+                currentInput = currentInput.slice(0, -1);
+            }
+            updateDisplay();
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key >= '0' && event.key <= '9') {
+                appendNumber(event.key);
+            } else if (event.key === '.') {
+                appendDecimal();
+            } else if (event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/') {
+                appendOperator(event.key);
+            } else if (event.key === 'Enter' || event.key === '=') {
+                calculate();
+            } else if (event.key === 'Escape') {
+                clearDisplay();
+            } else if (event.key === 'Backspace') {
+                backspace();
+            }
+        });
+
+        updateDisplay();
+    </script>
+</body>
+</html>
